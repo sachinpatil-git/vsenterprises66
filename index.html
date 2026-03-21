@@ -23,10 +23,8 @@
       position: absolute;
       top: 20px;
       right: 25px;
-
       width: 70px;
       height: auto;
-
       z-index: 10;
       filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4));
     }
@@ -38,16 +36,13 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-
       color: white;
       text-align: center;
-
       padding: 100px 20px;
       min-height: 60vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
-
       overflow: hidden;
     }
 
@@ -55,10 +50,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        rgba(10, 25, 40, 0.5),
-        rgba(10, 25, 40, 0.7)
-      );
+      background: linear-gradient(rgba(10,25,40,0.5), rgba(10,25,40,0.7));
     }
 
     .hero h1,
@@ -89,16 +81,13 @@
       width: fit-content;
       margin-left: auto;
       margin-right: auto;
-
       padding: 16px 40px;
       background: linear-gradient(45deg, #ff9800, #ffb74d);
       color: white;
-
       border-radius: 35px;
       text-decoration: none;
       font-weight: 600;
       font-size: 18px;
-
       transition: 0.3s;
       box-shadow: 0 8px 25px rgba(0,0,0,0.3);
     }
@@ -221,6 +210,30 @@
       font-size: 16px;
     }
 
+    /* PROJECT TABLE */
+    .project-table {
+      max-width: 600px;
+      margin: 0 auto 30px auto;
+      overflow-x: auto;
+    }
+
+    .project-table table {
+      width: auto;
+      margin: 0 auto;
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    .project-table th, .project-table td {
+      padding: 12px 20px;
+      border: 1px solid #ddd;
+    }
+
+    .project-table th {
+      background: #ff9800;
+      color: white;
+    }
+
     /* FOOTER */
     .footer {
       background: #1f2c3c;
@@ -248,26 +261,46 @@
   <div class="section">
     <h2>Our Happy Clients</h2>
     <div class="clients">
-
       <div class="card">
         <div class="emoji">🏠</div>
         <div class="stars">★★★★☆</div>
-
         <p>
           We are extremely happy with the quality and attention to detail in our home construction.
           The entire process was smooth, transparent, and professionally managed from start to finish.
           The team delivered on time without compromising on workmanship.
         </p>
-
         <strong>Sachin Patil, Vijayapur</strong>
       </div>
-
     </div>
   </div>
 
-  <!-- PROJECT -->
+  <!-- PROJECTS -->
   <div class="section">
     <h2>Our Ongoing Projects</h2>
+
+    <!-- Centered Project Table -->
+    <div class="project-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Place</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Muddebihal</td>
+            <td>80% Completed</td>
+          </tr>
+          <tr>
+            <td>Jalwad</td>
+            <td>75% Completed</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Project Video -->
     <div class="video">
       <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e" alt="Project">
       <div class="play-btn">▶</div>
