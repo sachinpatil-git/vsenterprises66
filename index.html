@@ -4,38 +4,138 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VS Enterprises</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
+      font-family: 'Poppins', sans-serif;
+      background: #f4f6f9;
       color: #333;
     }
 
+    /* TOP RIGHT LOGO */
+    .corner-logo {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+
+      width: 70px;
+      height: auto;
+
+      z-index: 10;
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4));
+    }
+
+    /* HERO */
     .hero {
-      background: linear-gradient(to right, #1f2c3c, #2c3e50);
+      position: relative;
+      background: url('https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
       color: white;
       text-align: center;
-      padding: 60px 20px;
+
+      padding: 100px 20px;
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        rgba(10, 25, 40, 0.5),
+        rgba(10, 25, 40, 0.7)
+      );
+    }
+
+    .hero h1,
+    .hero p,
+    .hero .btn {
+      position: relative;
+      z-index: 1;
     }
 
     .hero h1 {
       font-size: 48px;
       margin: 0;
       letter-spacing: 2px;
+      font-weight: 700;
+      text-shadow: 0 6px 20px rgba(0,0,0,0.6);
     }
 
     .hero p {
-      margin-top: 10px;
-      font-size: 18px;
-      opacity: 0.8;
+      margin-top: 15px;
+      font-size: 20px;
+      opacity: 0.95;
     }
 
+    /* BIG CTA BUTTON */
+    .btn {
+      margin-top: 25px;
+      display: block;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+
+      padding: 16px 40px;
+      background: linear-gradient(45deg, #ff9800, #ffb74d);
+      color: white;
+
+      border-radius: 35px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 18px;
+
+      transition: 0.3s;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px) scale(1.03);
+    }
+
+    /* MOBILE */
+    @media(max-width: 768px) {
+      .hero h1 { font-size: 32px; }
+      .hero p { font-size: 16px; }
+
+      .corner-logo {
+        width: 50px;
+        top: 15px;
+        right: 15px;
+      }
+
+      .btn {
+        width: 80%;
+        text-align: center;
+      }
+    }
+
+    /* SECTION */
     .section {
-      padding: 40px 20px;
+      padding: 60px 20px;
       text-align: center;
     }
 
+    h2 {
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+
+    /* CLIENT CARDS */
     .clients {
       display: flex;
       justify-content: center;
@@ -45,41 +145,53 @@
 
     .card {
       background: white;
-      border-radius: 10px;
-      padding: 20px;
-      width: 300px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 15px;
+      padding: 25px;
+      width: 320px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transition: 0.3s;
     }
 
-    .card img {
-      width: 100%;
-      border-radius: 10px;
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .emoji {
+      font-size: 50px;
     }
 
     .stars {
-      width: 120px;
+      font-size: 22px;
+      color: #ffb400;
       margin-top: 10px;
     }
 
     .card p {
       margin-top: 15px;
-      font-size: 15px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #555;
     }
 
     .card strong {
       display: block;
-      margin-top: 10px;
+      margin-top: 12px;
+      font-weight: 600;
     }
 
+    /* VIDEO */
     .video {
       position: relative;
-      width: 80%;
+      max-width: 900px;
       margin: auto;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
 
     .video img {
       width: 100%;
-      border-radius: 10px;
+      display: block;
     }
 
     .play-btn {
@@ -87,57 +199,94 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background: rgba(255,255,255,0.8);
+      background: rgba(255,255,255,0.9);
       border-radius: 50%;
-      padding: 20px;
-      font-size: 24px;
+      padding: 20px 25px;
+      font-size: 28px;
+      cursor: pointer;
     }
 
-    .contact {
-      margin-top: 30px;
-      font-size: 18px;
+    /* CONTACT */
+    .contact-box {
+      background: white;
+      max-width: 600px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     }
+
+    .contact-box p {
+      margin: 10px 0;
+      font-size: 16px;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: #1f2c3c;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
   </style>
 </head>
 <body>
 
+  <!-- TOP RIGHT LOGO -->
+  <img src="SV-logo.png" class="corner-logo" alt="SV Logo">
+
+  <!-- HERO -->
   <div class="hero">
     <h1>VS ENTERPRISES</h1>
     <p>Building your dream home with care and excellence</p>
+    <a href="#contact" class="btn">Get in Touch</a>
   </div>
 
+  <!-- CLIENTS -->
   <div class="section">
     <h2>Our Happy Clients</h2>
     <div class="clients">
-      <div class="card">
-        <div style="font-size:40px;">🏠</div>
-        
-        <!-- 4 Star Rating (Unicode fallback) -->
-        <div class="stars" style="font-size:20px;color:#f5a623;">★★★★☆</div>
 
-        <p>“We are extremely happy with the quality and attention to detail in our home construction.
-The entire process was smooth, transparent, and professionally managed from start to finish.
-The team delivered on time without compromising on workmanship or materials.
-Highly recommended for anyone looking to build their dream home with trust and excellence!”</p>
-        <strong>Sachin Patil Jalwad , Dist : Vijayapur, Tq: Devarahipparagi</strong>
+      <div class="card">
+        <div class="emoji">🏠</div>
+        <div class="stars">★★★★☆</div>
+
+        <p>
+          We are extremely happy with the quality and attention to detail in our home construction.
+          The entire process was smooth, transparent, and professionally managed from start to finish.
+          The team delivered on time without compromising on workmanship.
+        </p>
+
+        <strong>Sachin Patil, Vijayapur</strong>
       </div>
 
     </div>
   </div>
 
+  <!-- PROJECT -->
   <div class="section">
-    <h2>Take a Glimpse of Our Ongoing Projects</h2>
+    <h2>Our Ongoing Projects</h2>
     <div class="video">
-      <img src="https://via.placeholder.com/800x400" alt="Project">
+      <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e" alt="Project">
       <div class="play-btn">▶</div>
     </div>
   </div>
 
-  <div class="section contact">
-    <h2>Interested in Our Services?</h2>
-    <p>Request contact details. Once approved, you'll receive further information.</p>
-    <p><strong>📞 Phone:</strong> 99726-26328 / 85469-90327</p>
-    <p><strong>📍 Location:</strong> Belagavi / Talikote</p>
+  <!-- CONTACT -->
+  <div class="section" id="contact">
+    <h2>Contact Us</h2>
+    <div class="contact-box">
+      <p><strong>📞 Phone:</strong> <a href="tel:9972626328">99726-26328</a> / <a href="tel:8546990327">85469-90327</a></p>
+      <p><strong>📍 Location:</strong> Belagavi / Talikote</p>
+      <p><strong>💬 WhatsApp:</strong> <a href="https://wa.me/919972626328">Chat Now</a></p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p>© 2026 VS Enterprises | All Rights Reserved</p>
   </div>
 
 </body>
